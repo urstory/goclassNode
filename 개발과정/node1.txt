@@ -1,4 +1,22 @@
-node설치, atom에디터 설치 후
+node설치, atom에디터, git 설치 후
+
+git설치 메뉴얼 : https://rogerdudler.github.io/git-guide/index.ko.html
+
+프로젝트 폴더(goclassNode)에서 다음과 같이 입력 (최초)
+github에서는 goclassNode라는 레포지터리를 만들어야 한다.
+
+git init
+git add *
+git commit -m "프로젝트를 최초로 커밋"
+git remote add origin https://github.com/urstory/goclassNode.git
+git push origin master
+
+파일 수정후 commit을 하려고 할 경우
+
+git add *
+git commit -m "설명"
+git push origin master
+
 
 node 예제)
 
