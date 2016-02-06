@@ -285,3 +285,18 @@ lib/router/route.js : 기본 라우팅 지원기능을 제공한다. 라우팅�
 싶을 것이다.
 
 -----------------------------------------------------------
+
+node.js , mysql 예제
+
+http://bcho.tistory.com/892
+
+http://devlecture.tistory.com/entry/05-express-nodejs-%ED%99%98%EA%B2%BD%EC%97%90-mysql-%EC%97%B0%EB%8F%99-Webstorm-%EC%82%AC%EC%9A%A9
+(웹스톰사용)
+
+http://blog.iolo.kr/514
+nodejs orm
+
+http://nodeqa.com/nodejs_ref/32
+
+
+-----------------------------------------------------------
