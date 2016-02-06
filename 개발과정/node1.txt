@@ -1,0 +1,190 @@
+node설치, atom에디터 설치 후
+
+node 예제)
+
+helloWorld.js 파일을 아래와 같이 작성한다.
+
+var http = require('http');
+
+http.createServer(function(req,res){
+  res.writeHead(200, { 'Content-Type' : 'text/plain'});
+  res.end('Hello world!');
+}).listen(3000);
+
+console.log('Server started on localhost:3000; press-C to terminate....');
+
+node helloWorld.js 로 실행한다.
+
+--------------------------------------------------
+
+npm install [-g] [--save] [package name]
+
+-g : 글로벌로 설치
+--save : package.json 파일을 갱신한다.
+
+
+npm 사용 예1)
+
+npm init
+몇가지 질문에 대한 답을 하면 package.json을 만들게 된다.
+
+
+npm 사용 예2)
+
+npm install --save express
+
+node_modules디렉토리에 설치한다. package.json파일을 업데이트 한다.
+
+github 사용을 할 경우 .gitignore파일에 node_modules를 추가한다.
+
+ex>
+
+.gitignore 내용
+#npm에서 설치한 패키지를 무시한다.
+node_modules
+
+수정된 package.json 파일.
+C:\Users\bit-user\Desktop\goclass>type package.json
+{
+  "name": "goclass",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.13.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "urstory",
+  "license": "ISC"
+}
+
+
+npm 사용 예3)
+
+npm install --save express3-handlebars
+
+http://handlebarsjs.com/ 사용법.
+
+index.js 파일을 작성한다.
+
+node index.js 로 실행한다.
+
+http://localhost:3000/index.js 로 예제를 확인한다.
+
+
+npm 사용 예4)
+npm install
+
+node_modules폴더를 삭제하더라도 다시 받아온다.
+-------------------------------------------------- ch05 시작.
+
+
+nodemon : 변경시 자동으로 서버를 재시작해주는 모니터 유틸리티
+
+http://nodemon.io/
+
+nodemon 그런트 플러그인 : https://github.com/ChrisWren/grunt-nodemon
+
+-------------------------------------------------
+
+테스트 프레임워크 : mocha
+
+npm install --save-dev mocha
+
+--save-dev : 개발시에만 사용하는 모듈을 추가한다.
+
+tip : 타사 라이브러리는 vendor와 같은 특별한 디렉터리에 담는 것이 좋다.
+
+chai 어셔션 라이브러리 : 테스트 할 경우 assert, expect함수를 이용한다.
+
+npm install --save-dev chai
+
+node_modules 에 있는 mocha.js, mocha.css , chai.js 를 public/vender에 복사한다.
+
+copy node_modules\mocha\mocha.css public\vendor\.
+copy node_modules\mocha\mocha.js public\vendor\.
+copy node_modules\chai\chai.js public\vendor\.
+
+-------------------------------------------------
+
+셀레늄(Selenium), 팬텀(JSPhantomJS), 좀비(zombie)
+
+http://zombie.js.org/
+
+브라우저 엔진을 사용하지 않기 때문에, 브라우저 기능을 테스트 할 수 없지만, 기본 기능을 테스트 하는데는 충분.
+
+npm install --save-dev zombie
+
+npm instal -g mocha
+
+글로벌로 설치해야 콘솔에서 mocha를 실행할 수 있다.
+
+mocha -u tdd -R spec qa/tests-unit.js
+mocha -u tdd -R spec qa/tests-crosspage.js
+mocha -u tdd -R spec qa/tests-unit.js
+-------------------------------------------------
+
+린트 프로그램
+
+- 좋은 린트 프로그램이 있으면 눈이 한쌍 더 있는 것이나 마찬가지이다.
+
+자바스크립트용 린트 : 더글러스 크록퍼드가 만든 JSLint라는 것이 원래 있었다.
+
+2011년 안톤 코발료프가 포크하여 JSHint를 만들었다. JSLint는 완고하여 좀더 자유스럽게 만듬
+
+npm install -g jshint
+
+
+index.js에 다음의 내용을 추가
+
+if( app.thing == null)
+  console.log('bleat!');
+
+jshint index.js
+위와 같이 실행하면 아래와 같이 오류 발생. === 로 수정하면 문제가 해결된다.
+
+
+C:\Users\bit-user\Desktop\goclass>jshint index.js
+index.js: line 6, col 15, Use '===' to compare with 'null'.
+
+1 error
+
+
+** jshint는 여러 에디터에서 에드온을 제공하고 있다.
+
+------------------------------------------------------
+링크체커 - linkchecker
+
+https://wummel.github.io/linkchecker/
+
+다운로드후 설치
+
+C:\Program Files (x86)\LinkChecker 를 환경변수 Path에 추가한다.
+
+linkchecker http://localhost:3000
+
+으로 실행
+------------------------------------------------------
+그런트를 위한 자동화
+
+sudo npm install -g grunt-cli
+npm install --save-dev grunt
+
+필요한 플러그인 설치
+
+npm install --save-dev grunt-cafe-mocha
+npm install --save-dev grunt-contrib-jshint
+npm install --save-dev grunt-exec
+
+Gruntfile.js 파일을 만든다.
+
+실행
+grunt
+
+** commit하기 전에 grunt하는 습관을 가지도록 한다.
+
+
+------------------------------------------------------ ch05 끝
